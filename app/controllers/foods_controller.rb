@@ -12,6 +12,7 @@ class FoodsController < ApplicationController
     
     def index
         @foods = Food.all
+        @today = Date.current.strftime('%Y-%m-%d')
     end
     
     def show
@@ -23,6 +24,9 @@ class FoodsController < ApplicationController
     end
     
     def destroy
+        food = Food.find(params[:id])
+        food.destroy
+        redirect_to foods_path
     end
     
     def update

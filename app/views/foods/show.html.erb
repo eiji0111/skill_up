@@ -1,1 +1,8 @@
-ここは詳細ページです。
+<h1>詳細ページ</h1>
+<%= attachment_image_tag @food, :image, format: 'jpeg', size: "100x100" %>
+<% @food.title %>
+<% @food.expiration %>
+
+<%= link_to '編集', edit_food_path(@food.id) %>
+<%= link_to '一覧', root_path %>
+<%= link_to '削除', food_path(@food), method: :delete, data: {confirm: "削除しますか？"} %>
