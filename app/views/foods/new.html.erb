@@ -1,0 +1,7 @@
+<h1>食品を保存する</h1>
+<%= form_with model:@food, local:true do |f| %>
+    <%= f.attachment_field :image %>
+    <%= f.text_field :title %>
+    <%= f.date_select :expiration %>
+    <%= f.submit '保存する' %>
+<% end %>
