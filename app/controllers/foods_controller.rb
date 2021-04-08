@@ -7,7 +7,7 @@ class FoodsController < ApplicationController
     def create
         @food = Food.new(food_params)
         @food.save
-        redirect_to foods_path
+        redirect_to root_path
     end
     
     def index
@@ -26,7 +26,11 @@ class FoodsController < ApplicationController
     def destroy
         food = Food.find(params[:id])
         food.destroy
-        redirect_to foods_path
+        redirect_to root_path
+    end
+    
+    def edit
+        @food = Food.find(params[:id])
     end
     
     def update
@@ -34,6 +38,7 @@ class FoodsController < ApplicationController
         food.update(food_params)
         redirect_to food_path(food.id)
     end
+    
     private
 
     def food_params

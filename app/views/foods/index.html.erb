@@ -4,7 +4,7 @@
 
 <% @foods.each do |food| %>
     <%= link_to food_path(food.id) do %>
-        <% if food.expiration == @today %>
+        <% if @food_expiration == @today %>
             <%= attachment_image_tag food, :image, format: 'jpeg', size: "100x100", class:'change-background' %>
         <% else %>
             <%= attachment_image_tag food, :image, format: 'jpeg', size: "100x100" %>

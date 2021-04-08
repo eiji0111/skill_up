@@ -1,0 +1,9 @@
+<h1>編集画面</h1>
+<%= form_with model:@food, local:true do |f| %>
+    <%= f.attachment_field :image %>
+    <%= f.text_field :title %>
+    <%= f.date_select :expiration %>
+    <%= f.submit '保存する' %>
+<% end %>
+<%= link_to '一覧', root_path %>
+<%= link_to '削除', food_path(@food.id), method: :delete, data: {confirm: "削除しますか？"} %>
