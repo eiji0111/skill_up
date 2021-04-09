@@ -7,7 +7,7 @@ class FoodsController < ApplicationController
     def create
         @food = Food.new(food_params)
         @food.save
-        redirect_to root_path
+        redirect_to foods_path
     end
     
     def index
@@ -42,6 +42,6 @@ class FoodsController < ApplicationController
     private
 
     def food_params
-        params.require(:food).permit(:title, :image, :expiration)
+        params.require(:food).permit(:title, :image, :expiration, :user)
     end
 end

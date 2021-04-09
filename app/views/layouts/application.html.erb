@@ -9,6 +9,21 @@
   </head>
 
   <body>
+    <div class="container-fluid bg-primary" style="height: 80px">
+      <div class="row h-100">
+        <div class="col-4 mr-auto">
+          <%= link_to 'FOOD', foods_path, class:'text-light' %>
+        </div>
+        <div class="col-8">
+          <% if user_signed_in? %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'text-light' %>
+          <% else %>
+            <%= link_to "新規登録", new_user_registration_path %>
+            <%= link_to "ログイン", new_user_session_path %>
+          <% end %>
+        </div>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>

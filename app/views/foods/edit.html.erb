@@ -5,5 +5,5 @@
     <%= f.date_select :expiration %>
     <%= f.submit '保存する' %>
 <% end %>
-<%= link_to '一覧', root_path %>
+<%= link_to '一覧', foods_path %>
 <%= link_to '削除', food_path(@food.id), method: :delete, data: {confirm: "削除しますか？"} %>

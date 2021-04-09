@@ -1,0 +1,33 @@
+<div class="container-md">
+  <div class="row">
+    <div class="col-md mt-3 mb-3">
+      <h1 class="text-center">ユーザー一覧</h1>
+    </div>
+  </div>
+  <div class="row justify-content-md-center">
+    <div class="col col-md-8">
+      <table class="table text-center">
+      <thead>
+        <tr>
+          <th scope="col" style="width:20%">ID</th>
+          <th scope="col" style="width:40%">ProfileImage</th>
+          <th scope="col" style="width:40%">Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+        <tr>
+          <th scope="row" class="align-middle"><%= user.id %></th>
+          <td>
+            <%= link_to user_path(user.id) do %>
+            <%= attachment_image_tag user, :profile_image, format: 'jpeg', size: "50x50", fallback: "no_image.png" %>
+            <% end %>
+          </td>
+          <td class="align-middle"><%= link_to user.name, user_path(user.id) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
