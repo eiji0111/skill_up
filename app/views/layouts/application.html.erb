@@ -11,15 +11,25 @@
   <body>
     <div class="container-fluid bg-primary" style="height: 80px">
       <div class="row h-100">
-        <div class="col-4 mr-auto">
+        <div class="col-4 mr-auto d-flex align-items-center" style="font-size:2rem">
+          <i class="fas fa-utensils"></i>
           <%= link_to 'FOOD', foods_path, class:'text-light' %>
         </div>
-        <div class="col-8">
+        <div class="col-2 d-flex align-items-center justify-content-between ml-auto" style="font-size:1rem">
           <% if user_signed_in? %>
+            <i class="fas fa-users">
+            <%= link_to 'ユーザー', users_path, class:'text-light' %>
+            </i>
+            <i class="fas fa-sign-out-alt">
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'text-light' %>
+            </i>
           <% else %>
-            <%= link_to "新規登録", new_user_registration_path %>
-            <%= link_to "ログイン", new_user_session_path %>
+            <i class="fas fa-user-edit">
+            <%= link_to "新規登録", new_user_registration_path, class:'text-light' %>
+            </i>
+            <i class="fas fa-sign-in-alt">
+            <%= link_to "ログイン", new_user_session_path, class:'text-light' %>
+            </i>
           <% end %>
         </div>
       </div>
